@@ -1,9 +1,6 @@
-# React + Vite
+# solid-gh-pages-deployment
+Solid application using the [Solid React SDK](https://docs.inrupt.com/developer-tools/javascript/react-sdk/) to log in via a selected identity provider.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This application is supposed to work correctly on **GitHub Pages**.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-"# solid-gh-pages-deployment" 
+_See commit history to see steps taken to develop this application._
