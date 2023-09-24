@@ -1,3 +1,4 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { useState } from 'react';
 import {
   useSession,
@@ -18,38 +19,49 @@ function App() {
   const [selectedProvider, setSelectedProvider] = useState(identityProviders[0]);
 
   return (
-    <>
-      <h2>GH Pages deployment test</h2>
-      <div>
-        isLoggedIn: {session.info.isLoggedIn == true ? "true" : "false"}
-      </div>
-      <br />
-      <div>
-        Your webID: {session.info.isLoggedIn == true ? session.info.webId : "Log in to see your WebID"}
-      </div>
-      <br />
-      <div>
-        <select
-          value={selectedProvider}
-          onChange={e => setSelectedProvider(e.target.value)}
-        >
-          {identityProviders.map((providerUrl) => {
-            return (
-              <option key={providerUrl}>
-                {providerUrl}
-              </option>
-            );
-          })}
-        </select>
-        {' '}
-        <LoginButton
-          oidcIssuer={selectedProvider}
-          redirectUrl={window.location.href}
+    <BrowserRouter
+      basename={import.meta.env.DEV ? '/' : '/solid-gh-pages-deployment/'}
+    >
+      <Routes>
+        <Route
+          path='/'
+          element={
+            <>
+              <h2>GH Pages deployment test</h2>
+              <div>
+                isLoggedIn: {session.info.isLoggedIn == true ? "true" : "false"}
+              </div>
+              <br />
+              <div>
+                Your webID: {session.info.isLoggedIn == true ? session.info.webId : "Log in to see your WebID"}
+              </div>
+              <br />
+              <div>
+                <select
+                  value={selectedProvider}
+                  onChange={e => setSelectedProvider(e.target.value)}
+                >
+                  {identityProviders.map((providerUrl) => {
+                    return (
+                      <option key={providerUrl}>
+                        {providerUrl}
+                      </option>
+                    );
+                  })}
+                </select>
+                {' '}
+                <LoginButton
+                  oidcIssuer={selectedProvider}
+                  redirectUrl={window.location.href}
+                />
+                {' '}
+                <LogoutButton />
+              </div>
+            </>
+          }
         />
-        {' '}
-        <LogoutButton />
-      </div>
-    </>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
