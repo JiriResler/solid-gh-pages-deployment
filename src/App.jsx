@@ -27,7 +27,7 @@ function App() {
           path='/'
           element={
             <>
-              <h1>GH Pages deployment test</h1>
+              <h1>A bug in title</h1>
               <div>
                 isLoggedIn: {session.info.isLoggedIn == true ? "true" : "false"}
               </div>
